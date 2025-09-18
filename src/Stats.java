@@ -6,7 +6,7 @@ public class Stats {
     private int maxAttack;
     private int defense;
     private int level;
-    private  int exp;
+    private int exp;
 
 
     public int getHp() {
@@ -63,7 +63,7 @@ public class Stats {
 
     public void setExp(int exp) {
         this.exp = exp;
-    }
+    } // TODO can i add a levelup method here? like if exp > threshold then level++ and reset exp then im getting the xp
 
     public String getName() {
         return name;

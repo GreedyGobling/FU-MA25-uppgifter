@@ -4,6 +4,19 @@ class GameMaster {
     Scanner sc = new Scanner(System.in);
     int round = 1;
     int turn = 1;
+    int battleCount = 0;
+
+    public void gameLoop(){
+        if (battleCount < 1){
+            battleCount++;
+            selectEnemy();
+        } else {
+            System.out.println(Main.initCharacter().get(0).getHp() );
+            Main.initCharacter().get(0).setExp(5);
+            Main.initCharacter().get(0).resetHp();
+        }
+
+    }
 
     public void startCombat(Stats player, Stats enemy){
         System.out.println("Combat Started!");
@@ -14,13 +27,20 @@ class GameMaster {
                 Battle.Attack(player, enemy);
             } else {
                 System.out.println("Enemy's turn!");
-                Battle.Attack(player, enemy);
+                Battle.Attack(enemy, player);
             }
             turn++;
             if(turn > 2){
                 turn = 1;
                 round++;
             }
+        }
+        if(player.getHp() <= 0){
+            System.out.println();
+            System.out.println("Player defeated!");
+        } else {
+            System.out.println();
+            System.out.println("Enemy defeated!");
         }
 
     }

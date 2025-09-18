@@ -3,10 +3,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
         initCharacter();
         GameMaster gm = new GameMaster();
-        gm.selectEnemy();
+        gm.gameLoop();
     }
 
     public static List<Stats> initCharacter() {

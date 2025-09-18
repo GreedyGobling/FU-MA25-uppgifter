@@ -4,13 +4,15 @@ public class Stats {
     private int minAttack;
     private int maxAttack;
     private int defense;
+    private int level;
 
-    public Stats(int hp, int baseHp, int minAttack, int maxAttack, int defense) {
+    public Stats(int hp, int baseHp, int minAttack, int maxAttack, int defense, int level) {
         this.hp = hp;
         this.baseHp = baseHp;
         this.minAttack = minAttack;
         this.maxAttack = maxAttack;
         this.defense = defense;
+        this.level = level;
     }
 
     public int getHp() {
@@ -56,4 +58,5 @@ public class Stats {
     public void reset(){
         this.hp = this.baseHp;
     }
+
 }

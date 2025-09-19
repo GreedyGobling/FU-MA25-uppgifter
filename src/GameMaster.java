@@ -12,8 +12,8 @@ class GameMaster {
             selectEnemy();
         } else {
             System.out.println(Main.initCharacter().get(0).getHp() );
-            Main.initCharacter().get(0).setExp(5);
             Main.initCharacter().get(0).resetHp();
+            selectEnemy();
         }
 
     }
@@ -41,6 +41,8 @@ class GameMaster {
         } else {
             System.out.println();
             System.out.println("Enemy defeated!");
+            gameLoop();
+            enemy.resetHp();
         }
 
     }

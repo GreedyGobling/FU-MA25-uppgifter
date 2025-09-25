@@ -1,7 +1,8 @@
 import java.util.List;
 
 public class Park {
-    public Park (){
+
+    public static void main(String[] args) {
         List<Animal> animals = List.of(
                 new Shark("Sharky"),
                 new BeardedVulture("Bone Eater"),
@@ -23,4 +24,5 @@ public class Park {
             System.out.println();
         }
     }
+
 }

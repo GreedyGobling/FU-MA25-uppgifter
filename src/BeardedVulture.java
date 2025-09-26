@@ -1,14 +1,20 @@
-public class BeardedVulture extends Animal implements Flyable {
+public class BeardedVulture extends Animal implements Flyable, FunFact {
     public BeardedVulture(String name) {
         super(name);
+    }
+
+    @Override
+    public void fact() {
+        System.out.println("Bearded Vulture (" + getName() + ") looks awesome (search up a image)");
     }
     @Override
     public void makeSound() {
         System.out.println("Bearded Vulture (" + getName() + ") says: SCRREEEEE");
     }
 
-    public void awesome() {
-        System.out.println("Bearded Vulture (" + getName() + ") looks awesome (sök up bild)");
+    @Override
+    public void fly() {
+        System.out.println("Bearded Vulture (" + getName() + ") is flying high in the sky with a wingspan of up to 2.8 meters.");
     }
 
     @Override

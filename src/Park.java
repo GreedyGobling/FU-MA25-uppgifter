@@ -12,8 +12,11 @@ public class Park {
         for (Animal animal : animals) {
             animal.makeSound();
             animal.eat();
-            if (animal instanceof BeardedVulture beardedVulture) {
-                beardedVulture.awesome();
+//            if (animal instanceof BeardedVulture beardedVulture) {
+//                beardedVulture.awesome();
+//            }
+            if (animal instanceof FunFact funFact) {
+                funFact.fact();
             }
             if (animal instanceof Swimmable swimmable) {
                 swimmable.swim();

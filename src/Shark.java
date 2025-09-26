@@ -3,6 +3,7 @@ public class Shark extends Animal implements Swimmable {
         super(name);
     }
 
+
     @Override
     public void makeSound() {
         System.out.println("Shark (" + getName() + ") says: Dun Dun... Dun Dun... Dun Dun...");

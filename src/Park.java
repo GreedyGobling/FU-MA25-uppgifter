@@ -8,7 +8,7 @@ public class Park {
                 new BeardedVulture("Bone Eater"),
                 new Cat("Whisky")
         );
-        // REMINDER! Animal/sak i animals/list ge Animal animal ref
+        // REMINDER! Animal/sak i animals/list ge Animal < animal ref
         for (Animal animal : animals) {
             animal.makeSound();
             animal.eat();

@@ -1,7 +1,7 @@
-
+# Tic Tac Toe Game Plan
 ## Game: Tic Tac Toe
 - [x] main start tic tac toe class
-- [ ] 1 to 9 Game class 
+- [x] 1 to 9 Game class 
 - [ ] List for players and ai. String for name, int for score. ??? Ai Difficulty here in List ???
 - [ ] loop for rounds // game class
 - [ ] loop for turns
@@ -29,7 +29,7 @@
 - [ ] Ai difficulty choice if player vs Ai
 - [ ] player names and color choice
 ### During round
-- [ ] Print board
+- [x] Print board
 - [ ] Print turn choice 1 to 9
 - [ ] Print invalid choice
 - [ ] Print winner

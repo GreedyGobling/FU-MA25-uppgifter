@@ -1,11 +1,20 @@
 public class Board {
     char[][] gameboard = new char[3][3]; // 2d array
 
-    public void start() {
+    public void print() {
+        GameBoard();
         printBoard();
     }
 
-    public void printBoard() { // print the gameboard to the console
+    private void GameBoard() {
+        for (int i = 0; i <gameboard.length; i++) {
+            for (int j = 0; j < gameboard.length; j++) {
+                gameboard[i][j] = ' ';
+            }
+        }
+    }
+
+    private void printBoard() { // print the gameboard to the console
         for (int i = 0; i < gameboard.length; i++) { // through the rows //
 //            for (int j = 0; j < gameboard.length; j++) { // through the columns
 //                  System.out.println("cell" + " " + i + " " + j);

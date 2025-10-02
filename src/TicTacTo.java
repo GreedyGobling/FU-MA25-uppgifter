@@ -1,8 +1,7 @@
 public class TicTacTo {
-
-    int score;
-
     public void start() {
-        System.out.println("Hello");
+        System.out.println("Hi");
+        Board board = new Board();
+        board.start();
     }
 }

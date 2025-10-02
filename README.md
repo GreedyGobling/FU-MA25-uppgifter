@@ -1,7 +1,7 @@
 
 ## Game: Tic Tac Toe
 - [x] main start tic tac toe class
-- [ ] 1 to 9 core class??? 
+- [ ] 1 to 9 Game class 
 - [ ] List for players and ai. String for name, int for score. ??? Ai Difficulty here in List ???
 - [ ] loop for rounds // game class
 - [ ] loop for turns
@@ -10,8 +10,7 @@
 ### Functions
 - [ ] Ai Difficulty choice. function to read list ai difficulty
 
-### Ai: if
-- [ ] 1 to 9
+### Ai: if HARDEST
 - [ ] Random choice
 - [ ] Avoid losing move
 - [ ] BIGGEST IF STATEMENT EVER MADE BY ME. UNDERTALE INSPIRED 

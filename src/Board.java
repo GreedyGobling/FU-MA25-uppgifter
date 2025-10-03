@@ -5,6 +5,8 @@ public class Board {
         GameBoard();
         printBoard();
     }
+
+
     //TODO: create a method to reset the gameboard
     //TODO: create a method to check for a win
     //TODO: create a method to check for a draw
@@ -14,7 +16,7 @@ public class Board {
     private void GameBoard() {
         for (int i = 0; i < gameboard.length; i++) {
             for (int j = 0; j < gameboard.length; j++) {
-                gameboard[i][j] = ' ';
+                gameboard[i][j] = ' '; // fill the gameboard with empty spaces
             }
         }
     }

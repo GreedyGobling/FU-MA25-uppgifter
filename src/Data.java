@@ -1,8 +1,13 @@
 public class Data {
-    String name;
-    String character;
-    int difficulty;
+    public String name;
+    public String character;
+    public int difficulty;
 
+    public Data(String name, String character, int difficulty) {
+        this.name = name;
+        this.character = character;
+        this.difficulty = difficulty;
+    }
 
     // <editor-fold desc="Getters and Setters">
     public String getName() {

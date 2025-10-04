@@ -3,8 +3,8 @@ import java.util.List;
 
 public class TicTacTo {
     public List<Data> dataList = new ArrayList<>();
-    //    Scanner sc = new Scanner(System.in);
     Output output = new Output(dataList);
+    Board board = new Board(dataList);
 
     public List<Data> dataList() {
         if (dataList.isEmpty()) {
@@ -19,14 +19,7 @@ public class TicTacTo {
         System.out.println("hi");
         dataList();
         output.printIntro();
-//        startUp();
-//        Game Game = new Game();
-//        Game.play();
-
     }
 
-    public TicTacTo() {
-        this.dataList = dataList;
-    }
 }
 

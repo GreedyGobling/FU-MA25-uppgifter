@@ -1,11 +1,21 @@
+import java.util.List;
+
 public class Board {
     char[][] gameboard = new char[3][3]; // 2d array
+    public List<Data> dataList;
+
+    public Board(List<Data> dataList) {
+        this.dataList = dataList;
+    }
 
     public void print() {
         GameBoard();
         printBoard();
     }
 
+    public void battle() {
+        System.out.println("Battle started!");
+    }
 
     //TODO: create a method to reset the gameboard
     //TODO: create a method to check for a win

@@ -19,17 +19,22 @@ public class Output {
                 System.out.println("1v1 mode selected");
                 printPlayer1();
                 printPlayer2();
+                printBattle(dataList.get(1).getDifficulty());
             } else if (mode == 2) {
                 System.out.println("1vAI mode selected");
                 //TODO - Select difficulty
-                System.out.println("Select difficulty: 1 - Easy, 2 - Medium,");
+                printAI();
+                printBattle(dataList.get(2).getDifficulty());
+
             } else { // Need this for 21
                 System.out.println("Invalid mode selected");
                 sc.nextLine();
                 printIntro();
+
             }
         } catch (Exception e) {
             System.out.println("Invalid mode selected");
+            System.out.println("Return to main menu");
             sc.nextLine();
             printIntro();
         }
@@ -73,8 +78,30 @@ public class Output {
             System.out.println("Player 2 name set to " + dataList.get(1).getName());
         }
         System.out.println("Player 1 is " + dataList.get(0).getName() + " and Player 2 is " + dataList.get(1).getName());
-
-
     }
 
+    public void printAI() {
+        System.out.println("Select difficulty: 1 - Random, 2 - :) ");
+        int dif = sc.nextInt();
+        if (dif == 1) {
+            dataList.get(2).setDifficulty(1);
+            System.out.println("Random difficulty selected");
+        } else if (dif == 2) {
+            dataList.get(2).setDifficulty(2);
+            System.out.println(" :) difficulty selected");
+        } else {
+            System.out.println("Invalid difficulty selected, defaulting to Random");
+            dataList.get(2).setDifficulty(1);
+        }
+    }
+
+    public void printBattle(int g) {
+        System.out.println("Battle starting!");
+        if (g == 0) { // 1v1
+            System.out.println("Player 1 is " + dataList.get(0).getName() + " and Player 2 is " + dataList.get(1).getName());
+        } else if (g == 1 || g == 2) { // 1vAI
+            System.out.println("Player is " + dataList.get(0).getName() + " vs AI");
+            System.out.println("AI difficulty is " + (g == 1 ? "Random" : ":)") );
+        }
+    }
 }

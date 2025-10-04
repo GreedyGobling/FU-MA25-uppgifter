@@ -22,7 +22,6 @@ public class Output {
                 printBattle(dataList.get(1).getDifficulty());
             } else if (mode == 2) {
                 System.out.println("1vAI mode selected");
-                //TODO - Select difficulty
                 printAI();
                 printBattle(dataList.get(2).getDifficulty());
 

@@ -12,7 +12,8 @@ public class Board {
     }
 
     public void beforeBattle() {
-        GameBoard();
+        GameBoard(); // reset gameboard to blanks
+        turn = 0; // reset turn
         System.out.println("Battle started!");
         battle();
     }
@@ -25,6 +26,8 @@ public class Board {
                 if (turn == 0) {
                     System.out.println(dataList.get(0).getName() + turn);
                     System.out.println("“Choose a tile by entering a number from 1 to 9");
+                    int input = sc.nextInt();
+                    converter(input);
                     turn++;
                 } else {
                     System.out.println(dataList.get(1).getName() + turn);
@@ -38,6 +41,13 @@ public class Board {
         }
         sc.close();
     }
+
+    public void converter(int input) {
+        int row = (input - 1) / 3; // get the row
+        int col = (input - 1) % 3; // get the column
+        System.out.println("row: " + row + " col: " + col);
+    }
+
 
 
     //TODO: create a method to check for a win or drawn

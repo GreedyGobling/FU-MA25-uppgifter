@@ -46,6 +46,19 @@ public class Board {
         int row = (input - 1) / 3; // get the row
         int col = (input - 1) % 3; // get the column
         System.out.println("row: " + row + " col: " + col);
+        if (input < 1 || input > 9) {
+            System.out.println("Invalid input, please enter a number from 1 to 9");
+            battle();
+        } else if (gameboard[row][col] != ' ') {
+            System.out.println("Cell already occupied, please choose another cell");
+            battle();
+        } else {
+            if (turn == 0) {
+                gameboard[row][col] = dataList.get(0).getCharacter().charAt(0); // place the mark
+            } else {
+                gameboard[row][col] = dataList.get(1).getCharacter().charAt(0); // place the mark
+            }
+        }
     }
 
 

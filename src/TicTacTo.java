@@ -17,9 +17,8 @@ public class TicTacTo {
 
     public void start() {
         dataList();
-        System.out.println("hi");
+        output.printIntro();
         board.beforeBattle();
-//        output.printIntro();
     }
 
 }

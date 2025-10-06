@@ -2,7 +2,7 @@
 ## Game: Tic Tac Toe
 - [x] main start tic tac toe class
 - [x] 1 to 9 Game class 
-- [ ] List for players and ai. String for name, int for score. ??? Ai Difficulty here in List ???
+- [x] List for players and ai. String for name, int for score. ??? Ai Difficulty here in List ???
 - [x] loop for rounds // game class
 - [x] loop for turns
 ## Ai

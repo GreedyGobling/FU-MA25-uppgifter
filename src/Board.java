@@ -31,8 +31,8 @@ public class Board {
                     turn++;
                 } else {
                     System.out.println(dataList.get(1).getName() + turn);
-                    int input = sc.nextInt();
-                    converter(input, dataList.get(1).getCharacter().charAt(0));
+//                    int input = sc.nextInt();
+//                    converter(input, dataList.get(1).getCharacter().charAt(0));
                     turn--;
                 }
             }
@@ -67,7 +67,18 @@ public class Board {
                 System.out.println("Player " + placeMarker + " wins!");
                 gameOver = true;
             }
-
+            if (gameboard[0][i] == placeMarker && gameboard[1][i] == placeMarker && gameboard[2][i] == placeMarker) {
+                System.out.println("Player " + placeMarker + " wins!");
+                gameOver = true;
+            }
+            if (gameboard[0][0] == placeMarker && gameboard[1][1] == placeMarker && gameboard[2][2] == placeMarker) {
+                System.out.println("Player " + placeMarker + " wins!");
+                gameOver = true;
+            }
+            if (gameboard[0][2] == placeMarker && gameboard[1][1] == placeMarker && gameboard[2][0] == placeMarker) {
+                System.out.println("Player " + placeMarker + " wins!");
+                gameOver = true;
+            }
         }
 
 

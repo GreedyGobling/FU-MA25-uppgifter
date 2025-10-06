@@ -7,7 +7,9 @@ public class Board {
     int turn = 0;
     int turns = 0; // need for draw
     int winner;
+    boolean isDraw = false;
     boolean gameOver = false;
+    Scanner sc = new Scanner(System.in);
 
     public Board(List<Data> dataList) {
         this.dataList = dataList;
@@ -33,7 +35,7 @@ public class Board {
         printBoard();
         System.out.println("Score: " + dataList.get(0).getName() + " " + dataList.get(0).getWins() + " - " + dataList.get(1).getWins() + " " + dataList.get(1).getName());
         System.out.println("Continue? (y/n)");
-        Scanner sc = new Scanner(System.in);
+        sc.nextLine();
         String inString = sc.nextLine();
         if (inString.equalsIgnoreCase("y")) {
             beforeBattle();
@@ -44,7 +46,6 @@ public class Board {
     }
 
     public void battle() {
-        Scanner sc = new Scanner(System.in);
         try {
             for (gameOver = false; !gameOver; ) {
                 printBoard();
@@ -73,7 +74,6 @@ public class Board {
             sc.nextLine();
             battle();
         }
-        sc.close();
         afterBattle();
     }
 
@@ -81,17 +81,17 @@ public class Board {
         int row = (input - 1) / 3; // get the row
         int col = (input - 1) % 3; // get the column
         char placeMarker = dataList.get(id).getCharacter().charAt(0); // get the character
+        draw();
+        if(isDraw == false){
         if (input < 1 || input > 9) {
             System.out.println("Invalid input, please enter a number from 1 to 9");
-            draw();
             battle();
         } else if (gameboard[row][col] != ' ') {
             System.out.println("Cell already occupied, please choose another cell");
-            draw();
             battle();
         } else {
             gameboard[row][col] = placeMarker; // place the mark
-        }
+        } }
         checkWin(id, placeMarker);
     }
 
@@ -117,7 +117,9 @@ public class Board {
         if (turns == 9 && gameOver == false) {
             System.out.println("It's a draw!");
             gameOver = true;
+            isDraw = true;
             winner = -1; // -1 for draw
+
         }
     }
 

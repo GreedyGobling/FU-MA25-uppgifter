@@ -8,16 +8,13 @@
 ## Ai
 
 ### Functions
-- [ ] Ai Difficulty choice. function to read list ai difficulty
+- [x] Ai Difficulty choice. function to read list ai difficulty
 
 ### Ai: if HARDEST
-- [ ] Random choice
-- [ ] Avoid losing move
 - [ ] BIGGEST IF STATEMENT EVER MADE BY ME. UNDERTALE INSPIRED 
 
 ### Ai: Random
-- [ ] Random choice 
-- [ ] avoid player choice
+- [ ] Random choice // random library // if spot taken, random again // this should be easy (PLS FOR THE LOVE OF FREYA)
 
 ## Output board // gameplay
 ### Before round

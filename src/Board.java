@@ -32,7 +32,7 @@ public class Board {
     public void battle() {
         try {
             for (gameOver = false; !gameOver; ) {
-                printBoard();
+                printBoard(); // TODO: can change all of this belowe to a signle function on call with id
                 if (turn == 0) {
                     System.out.println(dataList.get(0).getName() + turn);
                     System.out.println("“Choose a tile by entering a number from 1 to 9");
@@ -77,7 +77,6 @@ public class Board {
                 gameboard[row][col] = placeMarker; // place the mark
             }
         }
-        checkWin(id, placeMarker);
     }
 
     public void checkGame(int id) {

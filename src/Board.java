@@ -17,12 +17,14 @@ public class Board {
     public void battle() {
         try {
             for (gameOver = false; !gameOver; ) {
-                printBoard(); // TODO: can change all of this belowe to a signle function on call with id
+                printBoard();
                 if (turn == 0) {
                     players(0);
                     turn++;
                 } else {
-                    players(1);
+                    if (dataList.get(1).getName().equals("AI")) {
+                        randomBot(1);
+                    } else {players(1);}
                     turn--;
                 }
             }
@@ -83,15 +85,6 @@ public class Board {
         return false;
     }
 
-    //    public void draw() {
-//        if ( && gameOver == false) {
-//            System.out.println("It's a draw!");
-//            gameOver = true;
-//            isDraw = true;
-//            winner = -1; // -1 for draw
-//
-//        }
-//    }
     public boolean draw() {
         for (int i = 0; i < gameboard.length; i++) {
             for (int j = 0; j < gameboard.length; j++) {
@@ -103,15 +96,16 @@ public class Board {
         return true;
     }
 
-    public void randomBot(){
-        int row = (int) (Math.random() * 3);
-        int col = (int) (Math.random() * 3);
-        char placeMarker = dataList.get(1).getCharacter().charAt(0); // get the character
-        if (gameboard[row][col] != ' ') {
-            randomBot();
-        } else {
-            gameboard[row][col] = placeMarker; // place the mark
-        }
+    public void randomBot(int id){
+        int row, col;
+        do {
+            row = (int) (Math.random() * 3);
+            col = (int) (Math.random() * 3);
+        } while (gameboard[row][col] != ' ');
+        char placeMarker = dataList.get(id).getCharacter().charAt(0);
+        gameboard[row][col] = placeMarker; // place the mark
+        checkGame(id);
+        turns++;
     }
     public void players(int id){
         System.out.println(dataList.get(id).getName() + turn);
@@ -123,7 +117,7 @@ public class Board {
     }
 
 
-    public void GameBoard() {
+    public void resetBoard() {
         for (int i = 0; i < gameboard.length; i++) {
             for (int j = 0; j < gameboard.length; j++) {
                 gameboard[i][j] = ' '; // fill the gameboard with empty spaces
@@ -145,7 +139,7 @@ public class Board {
     }
 
     public void beforeBattle() {
-        GameBoard(); // reset gameboard to blanks
+        resetBoard(); // reset gameboard to blanks
         turn = 0; // reset turn
         System.out.println("Battle started!");
         battle();
@@ -158,10 +152,8 @@ public class Board {
         sc.close();
     }
 
-    public void printBoard() { // print the gameboard to the console
+    public void printBoard() {
         for (int i = 0; i < gameboard.length; i++) { // through the rows
-//            for (int j = 0; j < gameboard.length; j++) { // through the columns
-//                  System.out.println("cell" + " " + i + " " + j);
             if (i == 0) System.out.println("|-----------|");
             System.out.print("| " + gameboard[i][0] + " | " + gameboard[i][1] + " | " + gameboard[i][2] + " |" + "\n");
             if (i < 2) System.out.println("|---+---+---|");

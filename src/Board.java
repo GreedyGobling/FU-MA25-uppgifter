@@ -5,6 +5,7 @@ public class Board {
     char[][] gameboard = new char[3][3]; // 2d array
     public List<Data> dataList;
     int turn = 0;
+    int turns = 0; // need for draw
     int winner;
     boolean gameOver = false;
 
@@ -18,7 +19,8 @@ public class Board {
         System.out.println("Battle started!");
         battle();
     }
-    public void afterBattle(){
+
+    public void afterBattle() {
         if (winner == 0) {
             System.out.println(dataList.get(0).getName() + " wins!");
             dataList.get(0).setWins(dataList.get(0).getWins() + 1);
@@ -32,8 +34,8 @@ public class Board {
         System.out.println("Score: " + dataList.get(0).getName() + " " + dataList.get(0).getWins() + " - " + dataList.get(1).getWins() + " " + dataList.get(1).getName());
         System.out.println("Continue? (y/n)");
         Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
-        if (input.equalsIgnoreCase("y")) {
+        String inString = sc.nextLine();
+        if (inString.equalsIgnoreCase("y")) {
             beforeBattle();
         } else {
             System.out.println("Thanks for playing!");
@@ -50,15 +52,19 @@ public class Board {
                     System.out.println(dataList.get(0).getName() + turn);
                     System.out.println("“Choose a tile by entering a number from 1 to 9");
                     int input = sc.nextInt();
-                    converter(input, dataList.get(0).getCharacter().charAt(0));
+                    int id = 0;
+                    converter(input, id);
                     turn++;
+                    turns++;
                     winner = 0;
                 } else {
                     System.out.println(dataList.get(1).getName() + turn);
                     System.out.println("“Choose a tile by entering a number from 1 to 9");
                     int input = sc.nextInt();
-                    converter(input, dataList.get(1).getCharacter().charAt(0));
+                    int id = 1;
+                    converter(input, id);
                     turn--;
+                    turns++;
                     winner = 1;
                 }
             }
@@ -71,22 +77,25 @@ public class Board {
         afterBattle();
     }
 
-    public void converter(int input, char placeMarker) {
+    public void converter(int input, int id) {
         int row = (input - 1) / 3; // get the row
         int col = (input - 1) % 3; // get the column
+        char placeMarker = dataList.get(id).getCharacter().charAt(0); // get the character
         if (input < 1 || input > 9) {
             System.out.println("Invalid input, please enter a number from 1 to 9");
+            draw();
             battle();
         } else if (gameboard[row][col] != ' ') {
             System.out.println("Cell already occupied, please choose another cell");
+            draw();
             battle();
         } else {
             gameboard[row][col] = placeMarker; // place the mark
         }
-        checkWin(placeMarker);
+        checkWin(id, placeMarker);
     }
 
-    public void checkWin(char placeMarker) {
+    public void checkWin(int id, char placeMarker) {
         // TODO: check rows, columns and diagonals for a win
         for (int i = 0; i < gameboard.length; i++) {
             if (gameboard[i][0] == placeMarker && gameboard[i][1] == placeMarker && gameboard[i][2] == placeMarker) {
@@ -101,6 +110,14 @@ public class Board {
             if (gameboard[0][2] == placeMarker && gameboard[1][1] == placeMarker && gameboard[2][0] == placeMarker) {
                 gameOver = true;
             }
+        }
+    }
+
+    public void draw() {
+        if (turns == 9 && gameOver == false) {
+            System.out.println("It's a draw!");
+            gameOver = true;
+            winner = -1; // -1 for draw
         }
     }
 

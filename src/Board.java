@@ -127,15 +127,15 @@ public class Board {
 
     public void continyOrEnd() {
         System.out.println("Continue? (y/n)");
-        sc.nextLine().toUpperCase();
         String inString = sc.nextLine();
+        sc.nextLine().toUpperCase();
         if (inString.equalsIgnoreCase("y")) {
             beforeBattle();
         } else {
             System.out.println("Thanks for playing!");
             System.out.println("Final Score: " + dataList.get(0).getName() + " " + dataList.get(0).getWins() + " - " + dataList.get(1).getWins() + " " + dataList.get(1).getName());
+            System.exit(0); // kill currect process
         }
-        sc.close();
     }
 
     public void beforeBattle() {
@@ -149,7 +149,6 @@ public class Board {
         printBoard();
         System.out.println("Score: " + dataList.get(0).getName() + " " + dataList.get(0).getWins() + " - " + dataList.get(1).getWins() + " " + dataList.get(1).getName());
         continyOrEnd();
-        sc.close();
     }
 
     public void printBoard() {

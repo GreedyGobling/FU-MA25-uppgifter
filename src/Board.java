@@ -44,7 +44,7 @@ public class Board {
         sc.close();
     }
 
-    public boolean converter(int input, char placeMarker) {
+    public void converter(int input, char placeMarker) {
         int row = (input - 1) / 3; // get the row
         int col = (input - 1) % 3; // get the column
         System.out.println("row: " + row + " col: " + col);
@@ -57,9 +57,21 @@ public class Board {
         } else {
                 gameboard[row][col] = placeMarker; // place the mark
         }
-        return false;
+        checkWin(placeMarker);
     }
 
+    public void checkWin(char placeMarker) {
+    // TODO: check rows, columns and diagonals for a win
+        for (int i = 0; i < gameboard.length; i++) {
+            if (gameboard[i][0] == placeMarker && gameboard[i][1] == placeMarker && gameboard[i][2] == placeMarker) {
+                System.out.println("Player " + placeMarker + " wins!");
+                gameOver = true;
+            }
+
+        }
+
+
+    }
 
 
     //TODO: create a method to check for a win or drawn

@@ -14,7 +14,7 @@
 - [ ] BIGGEST IF STATEMENT EVER MADE BY ME. UNDERTALE INSPIRED 
 
 ### Ai: Random
-- [ ] Random choice // random library // if spot taken, random again // this should be easy (PLS FOR THE LOVE OF FREYA)
+- [x] Random choice // random library // if spot taken, random again // this should be easy (PLS FOR THE LOVE OF FREYA)
 
 ## Output board // gameplay
 ### Before round
@@ -25,7 +25,6 @@
 - [ ] color choice 
 #### Ai
 - [ ] Ai difficulty choice if player vs Ai
-- [ ] player names and color choice
 ### During round
 - [x] Print board
 - [x] Print turn choice 1 to 9

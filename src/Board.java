@@ -24,7 +24,9 @@ public class Board {
                 } else {
                     if (dataList.get(1).getName().equals("AI")) {
                         randomBot(1);
-                    } else {players(1);}
+                    } else {
+                        players(1);
+                    }
                     turn--;
                 }
             }
@@ -96,7 +98,7 @@ public class Board {
         return true;
     }
 
-    public void randomBot(int id){
+    public void randomBot(int id) {
         int row, col;
         do {
             row = (int) (Math.random() * 3);
@@ -107,10 +109,12 @@ public class Board {
         checkGame(id);
         turns++;
     }
-    public void players(int id){
+
+    public void players(int id) {
         System.out.println(dataList.get(id).getName() + turn);
         System.out.println("“Choose a tile by entering a number from 1 to 9");
         int input = sc.nextInt();
+        sc.nextLine();
         converter(input, id);
         checkGame(id);
         turns++;
@@ -128,7 +132,6 @@ public class Board {
     public void continyOrEnd() {
         System.out.println("Continue? (y/n)");
         String inString = sc.nextLine();
-        sc.nextLine().toUpperCase();
         if (inString.equalsIgnoreCase("y")) {
             beforeBattle();
         } else {

@@ -9,8 +9,8 @@ public class TicTacTo {
     public List<Data> dataList() {
         if (dataList.isEmpty()) {
             dataList.add(new Data("player1", "X", 0, 0));
-//            dataList.add(new Data("player2", "O", 0, 0));
-//            dataList.add(new Data("AI", "O", 0, 0));
+//            dataList.add(new Data("player2", "O", 0, 0)); // old method
+//            dataList.add(new Data("AI", "O", 0, 0)); // old method
         }
         return dataList;
     }

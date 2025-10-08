@@ -6,7 +6,7 @@ public class Board {
     public List<Player> players;
     int turn = 0;
     int turns = 0; // need for draw
-    boolean endDraw = false;
+//    boolean endDraw = false; // is not really need anymore was needed on d3d095ec60a33ce46c89bcb3223ecd627ef2ff39 git number
     boolean gameOver = false;
     Scanner sc = new Scanner(System.in);
 
@@ -43,7 +43,7 @@ public class Board {
         int col = (input - 1) % 3; // get the column
         char placeMarker = players.get(id).getSymbol().charAt(0); // get the character
         isDraw();
-        if (!endDraw) {
+//        if (!endDraw) {
             if (input < 1 || input > 9) {
                 System.out.println("Invalid input, please enter a number from 1 to 9");
                 battle();
@@ -53,7 +53,7 @@ public class Board {
             } else {
                 gameboard[row][col] = placeMarker; // place the mark
             }
-        }
+//        }
     }
 
     public void checkGame(int id) {
@@ -87,7 +87,7 @@ public class Board {
         return false;
     }
 
-    public boolean isDraw() {
+    public boolean isDraw() { // check for full board
         for (int i = 0; i < gameboard.length; i++) {
             for (int j = 0; j < gameboard.length; j++) {
                 if (gameboard[i][j] == ' ') {

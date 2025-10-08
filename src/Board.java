@@ -5,7 +5,6 @@ public class Board {
     char[][] gameboard = new char[3][3]; // 2d array
     public List<Player> players;
     int turn = 0;
-    int turns = 0; // need for draw
 //    boolean endDraw = false; // is not really need anymore was needed on d3d095ec60a33ce46c89bcb3223ecd627ef2ff39 git number
     boolean gameOver = false;
     Scanner sc = new Scanner(System.in);
@@ -107,7 +106,6 @@ public class Board {
         char placeMarker = players.get(id).getSymbol().charAt(0);
         gameboard[row][col] = placeMarker; // place the mark
         checkGame(id);
-        turns++;
     }
 
     public void players(int id) {
@@ -117,7 +115,6 @@ public class Board {
         sc.nextLine();
         converter(input, id);
         checkGame(id);
-        turns++;
     }
 
     public void resetBoard() {
@@ -152,15 +149,6 @@ public class Board {
         System.out.println("Score: " + players.get(0).getName() + " " + players.get(0).getWins() + " - " + players.get(1).getWins() + " " + players.get(1).getName());
         continyOrEnd();
     }
-
-//    public void printBoard() {
-//        for (int i = 0; i < gameboard.length; i++) { // through the rows
-//            if (i == 0) System.out.println("|-----------|");
-//            System.out.print("| " + gameboard[i][0] + " | " + gameboard[i][1] + " | " + gameboard[i][2] + " |" + "\n");
-//            if (i < 2) System.out.println("|---+---+---|");
-//            if (i == 2) System.out.println("|-----------|");
-//        }
-//    }
 
     public void printBoard() {
         String green = "\033[32m";

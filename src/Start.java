@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class TicTacTo {
+public class Start {
     public List<Player> players = new ArrayList<>();
     ManuUI manuUI = new ManuUI(players);
     Board board = new Board(players);

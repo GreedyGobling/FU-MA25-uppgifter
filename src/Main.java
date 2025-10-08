@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-    TicTacTo game = new TicTacTo();
+    Start game = new Start();
     game.start();
     }
 }

@@ -22,7 +22,7 @@ public class Output {
                 printPlayer2();
                 printBattle(dataList.get(1).getDifficulty());
             } else if (mode == 2) {
-                dataList.add(new Data("AI", "O", 0, 0));
+                dataList.add(new Data("AI925", "O", 0, 0));
                 printPlayer1();
                 System.out.println("1vAI mode selected");
                 printAI();

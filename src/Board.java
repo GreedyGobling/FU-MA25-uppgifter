@@ -22,7 +22,7 @@ public class Board {
                     players(0);
                     turn++;
                 } else {
-                    if (dataList.get(1).getName().equals("AI")) {
+                    if (dataList.get(1).getName().equals("AI925")) {
                         randomBot(1);
                     } else {
                         players(1);
@@ -120,7 +120,6 @@ public class Board {
         turns++;
     }
 
-
     public void resetBoard() {
         for (int i = 0; i < gameboard.length; i++) {
             for (int j = 0; j < gameboard.length; j++) {
@@ -154,10 +153,30 @@ public class Board {
         continyOrEnd();
     }
 
+//    public void printBoard() {
+//        for (int i = 0; i < gameboard.length; i++) { // through the rows
+//            if (i == 0) System.out.println("|-----------|");
+//            System.out.print("| " + gameboard[i][0] + " | " + gameboard[i][1] + " | " + gameboard[i][2] + " |" + "\n");
+//            if (i < 2) System.out.println("|---+---+---|");
+//            if (i == 2) System.out.println("|-----------|");
+//        }
+//    }
+
     public void printBoard() {
-        for (int i = 0; i < gameboard.length; i++) { // through the rows
+        String green = "\033[32m";
+        String reset = "\033[0m";
+        for (int i = 0; i < gameboard.length; i++) {
             if (i == 0) System.out.println("|-----------|");
-            System.out.print("| " + gameboard[i][0] + " | " + gameboard[i][1] + " | " + gameboard[i][2] + " |" + "\n");
+            System.out.print("| " + //
+                     // https://www.geeksforgeeks.org/java/how-to-print-colored-text-in-java-console/
+                    // https://stackoverflow.com/questions/19599880/if-statement-inside-the-print-statement#19599898 fix all my problems
+                    //  ? (if) : (else)
+                    (gameboard[i][0] != ' ' ? green + gameboard[i][0] + reset : gameboard[i][0]) +
+                    " | " +
+                    (gameboard[i][1] != ' ' ? green + gameboard[i][1] + reset : gameboard[i][1]) +
+                    " | " +
+                    (gameboard[i][2] != ' ' ? green + gameboard[i][2] + reset : gameboard[i][2]) +
+                    " |" + "\n");
             if (i < 2) System.out.println("|---+---+---|");
             if (i == 2) System.out.println("|-----------|");
         }

@@ -3,15 +3,15 @@ import java.util.Scanner;
 
 public class Board {
     char[][] gameboard = new char[3][3]; // 2d array
-    public List<Data> dataList;
+    public List<Player> players;
     int turn = 0;
     int turns = 0; // need for draw
-    boolean isDraw = false;
+    boolean endDraw = false;
     boolean gameOver = false;
     Scanner sc = new Scanner(System.in);
 
-    public Board(List<Data> dataList) {
-        this.dataList = dataList;
+    public Board(List<Player> players) {
+        this.players = players;
     }
 
     public void battle() {
@@ -22,7 +22,7 @@ public class Board {
                     players(0);
                     turn++;
                 } else {
-                    if (dataList.get(1).getName().equals("AI925")) {
+                    if (players.get(1).getName().equals("AI925")) {
                         randomBot(1);
                     } else {
                         players(1);
@@ -41,9 +41,9 @@ public class Board {
     public void converter(int input, int id) {
         int row = (input - 1) / 3; // get the row
         int col = (input - 1) % 3; // get the column
-        char placeMarker = dataList.get(id).getCharacter().charAt(0); // get the character
-        draw();
-        if (!isDraw) {
+        char placeMarker = players.get(id).getSymbol().charAt(0); // get the character
+        isDraw();
+        if (!endDraw) {
             if (input < 1 || input > 9) {
                 System.out.println("Invalid input, please enter a number from 1 to 9");
                 battle();
@@ -57,12 +57,12 @@ public class Board {
     }
 
     public void checkGame(int id) {
-        if (checkWin(dataList.get(id).getCharacter().charAt(0))) {
+        if (checkWin(players.get(id).getSymbol().charAt(0))) {
             gameOver = true;
-            System.out.println(dataList.get(id).getName() + " wins!");
-            dataList.get(id).setWins(dataList.get(id).getWins() + 1);
+            System.out.println(players.get(id).getName() + " wins!");
+            players.get(id).setWins(players.get(id).getWins() + 1);
             afterBattle();
-        } else if (draw()) {
+        } else if (isDraw()) {
             gameOver = true;
             System.out.println("Draw!");
             continyOrEnd();
@@ -87,7 +87,7 @@ public class Board {
         return false;
     }
 
-    public boolean draw() {
+    public boolean isDraw() {
         for (int i = 0; i < gameboard.length; i++) {
             for (int j = 0; j < gameboard.length; j++) {
                 if (gameboard[i][j] == ' ') {
@@ -104,14 +104,14 @@ public class Board {
             row = (int) (Math.random() * 3);
             col = (int) (Math.random() * 3);
         } while (gameboard[row][col] != ' ');
-        char placeMarker = dataList.get(id).getCharacter().charAt(0);
+        char placeMarker = players.get(id).getSymbol().charAt(0);
         gameboard[row][col] = placeMarker; // place the mark
         checkGame(id);
         turns++;
     }
 
     public void players(int id) {
-        System.out.println(dataList.get(id).getName() + turn);
+        System.out.println(players.get(id).getName() + turn);
         System.out.println("“Choose a tile by entering a number from 1 to 9");
         int input = sc.nextInt();
         sc.nextLine();
@@ -135,7 +135,7 @@ public class Board {
             beforeBattle();
         } else {
             System.out.println("Thanks for playing!");
-            System.out.println("Final Score: " + dataList.get(0).getName() + " " + dataList.get(0).getWins() + " - " + dataList.get(1).getWins() + " " + dataList.get(1).getName());
+            System.out.println("Final Score: " + players.get(0).getName() + " " + players.get(0).getWins() + " - " + players.get(1).getWins() + " " + players.get(1).getName());
             System.exit(0); // kill currect process
         }
     }
@@ -149,7 +149,7 @@ public class Board {
 
     public void afterBattle() {
         printBoard();
-        System.out.println("Score: " + dataList.get(0).getName() + " " + dataList.get(0).getWins() + " - " + dataList.get(1).getWins() + " " + dataList.get(1).getName());
+        System.out.println("Score: " + players.get(0).getName() + " " + players.get(0).getWins() + " - " + players.get(1).getWins() + " " + players.get(1).getName());
         continyOrEnd();
     }
 

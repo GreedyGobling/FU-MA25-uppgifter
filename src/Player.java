@@ -1,13 +1,13 @@
-public class Data {
+public class Player {
     public String name;
-    public String character;
+    public String symbol;
     public int difficulty;
     public int wins;
 
 
-    public Data(String name, String character, int difficulty, int wins) {
+    public Player(String name, String symbol, int difficulty, int wins) {
         this.name = name;
-        this.character = character;
+        this.symbol = symbol;
         this.difficulty = difficulty;
         this.wins = wins;
     }
@@ -21,12 +21,12 @@ public class Data {
         this.name = name;
     }
 
-    public String getCharacter() {
-        return character;
+    public String getSymbol() {
+        return symbol;
     }
 
-    public void setCharacter(String character) {
-        this.character = character;
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
     public int getDifficulty() {

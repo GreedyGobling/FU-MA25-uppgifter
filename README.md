@@ -16,7 +16,7 @@
 ### Ai: Random
 - [x] Random choice // random library // if spot taken, random again // this should be easy (PLS FOR THE LOVE OF FREYA)
 
-## Output board // gameplay
+## ManuUI board // gameplay
 ### Before round
 - [x] player vs player or player vs ai
 #### PvP

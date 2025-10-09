@@ -5,7 +5,6 @@ public class Board {
     char[][] gameboard = new char[3][3]; // 2d array
     public List<Player> players;
     int turn = 0;
-//    boolean endDraw = false; // is not really need anymore was needed on d3d095ec60a33ce46c89bcb3223ecd627ef2ff39 git number
     boolean gameOver = false;
     Scanner sc = new Scanner(System.in);
 

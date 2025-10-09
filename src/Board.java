@@ -106,7 +106,7 @@ public class Board {
     }
 
     public void players(int id) {
-        System.out.println(players.get(id).getName() + turn);
+        System.out.println(players.get(id).getName() + " Turn");
         System.out.println("“Choose a tile by entering a number from 1 to 9");
         int input = sc.nextInt();
         sc.nextLine();

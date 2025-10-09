@@ -6,17 +6,15 @@ public class Start {
     ManuUI manuUI = new ManuUI(players);
     Board board = new Board(players);
 
-    public List<Player> players() {
+    public List<Player> initPlayers() {
         if (players.isEmpty()) {
             players.add(new Player("player1", "X", 0, 0));
-//            dataList.add(new Data("player2", "O", 0, 0)); // old method
-//            dataList.add(new Data("AI", "O", 0, 0)); // old method
         }
         return players;
     }
 
     public void start() {
-        players();
+        initPlayers();
         manuUI.printIntro();
         board.beforeBattle();
     }

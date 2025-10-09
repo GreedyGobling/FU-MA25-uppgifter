@@ -22,12 +22,10 @@ public class ManuUI {
                 printPlayer2();
                 printBattle(players.get(1).getDifficulty());
             } else if (mode == 2) {
-                players.add(new Player("AI925", "O", 0, 0));
+                players.add(new Player("AI925", "O", 1, 0));
                 printPlayer1();
                 System.out.println("1vAI mode selected");
-                printAI();
                 printBattle(players.get(1).getDifficulty());
-
             } else { // Need this for 21
                 System.out.println("Invalid mode selected");
                 sc.nextLine();
@@ -82,28 +80,12 @@ public class ManuUI {
         System.out.println("Player 1 is " + players.get(0).getName() + " and Player 2 is " + players.get(1).getName());
     }
 
-    public void printAI() {
-//        System.out.println("Select difficulty: 1 - Random, 2 - :) ");
-//        int dif = sc.nextInt();
-//        if (dif == 1) {
-//            dataList.get(1).setDifficulty(1);
-//            System.out.println("Random difficulty selected");
-//        } else if (dif == 2) {
-//            dataList.get(1).setDifficulty(2);
-//            System.out.println(" :) difficulty selected");
-//        } else {
-//            System.out.println("Invalid difficulty selected, defaulting to Random");
-//            dataList.get(1).setDifficulty(1);
-//        }
-    }
-
-    public void printBattle(int g) {
+    public void printBattle(int dif) { // dif is difficulty
         System.out.println("Battle starting!");
-        if (g == 0) { // 1v1
+        if (dif == 0) { // 1v1
             System.out.println("Player 1 is " + players.get(0).getName() + " and Player 2 is " + players.get(1).getName());
-        } else if (g == 1 || g == 2) { // 1vAI
+        } else if (dif == 1 ) { // 1vAI
             System.out.println("Player is " + players.get(0).getName() + " vs AI");
-            System.out.println("AI difficulty is " + (g == 1 ? "Random" : ":)"));
         }
     }
 }

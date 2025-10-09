@@ -41,17 +41,15 @@ public class Board {
         int col = (input - 1) % 3; // get the column
         char placeMarker = players.get(id).getSymbol().charAt(0); // get the character
         isDraw();
-//        if (!endDraw) {
-            if (input < 1 || input > 9) {
-                System.out.println("Invalid input, please enter a number from 1 to 9");
-                battle();
-            } else if (gameboard[row][col] != ' ') {
-                System.out.println("Cell already occupied, please choose another cell");
-                battle();
-            } else {
-                gameboard[row][col] = placeMarker; // place the mark
-            }
-//        }
+        if (input < 1 || input > 9) {
+            System.out.println("Invalid input, please enter a number from 1 to 9");
+            battle();
+        } else if (gameboard[row][col] != ' ') {
+            System.out.println("Cell already occupied, please choose another cell");
+            battle();
+        } else {
+            gameboard[row][col] = placeMarker; // place the mark
+        }
     }
 
     public void checkGame(int id) {
@@ -155,7 +153,7 @@ public class Board {
         for (int i = 0; i < gameboard.length; i++) {
             if (i == 0) System.out.println("|-----------|");
             System.out.print("| " + //
-                     // https://www.geeksforgeeks.org/java/how-to-print-colored-text-in-java-console/
+                    // https://www.geeksforgeeks.org/java/how-to-print-colored-text-in-java-console/
                     // https://stackoverflow.com/questions/19599880/if-statement-inside-the-print-statement#19599898 fix all my problems
                     //  ? (if) : (else)
                     (gameboard[i][0] != ' ' ? green + gameboard[i][0] + reset : gameboard[i][0]) +

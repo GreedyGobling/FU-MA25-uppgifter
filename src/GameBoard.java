@@ -1,14 +1,14 @@
 import java.util.List;
 import java.util.Scanner;
 
-public class Board {
-    char[][] gameboard = new char[3][3]; // 2d array
+public class GameBoard {
+    private final char[][] gameboard = new char[3][3]; // 2d array
     public List<Player> players;
-    int turn = 0;
-    boolean gameOver = false;
-    Scanner sc = new Scanner(System.in);
+    private int turn = 0;
+    private boolean gameOver = false;
+    private Scanner sc = new Scanner(System.in);
 
-    public Board(List<Player> players) {
+    public GameBoard(List<Player> players) {
         this.players = players;
     }
 
@@ -36,7 +36,7 @@ public class Board {
         afterBattle();
     }
 
-    public void converter(int input, int id) {
+    public void makeMove(int input, int id) {
         int row = (input - 1) / 3; // get the row
         int col = (input - 1) % 3; // get the column
         char placeMarker = players.get(id).getSymbol().charAt(0); // get the character
@@ -110,7 +110,7 @@ public class Board {
         System.out.println("“Choose a tile by entering a number from 1 to 9");
         int input = sc.nextInt();
         sc.nextLine();
-        converter(input, id);
+        makeMove(input, id);
         checkGame(id);
     }
 

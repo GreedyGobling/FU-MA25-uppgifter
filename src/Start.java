@@ -4,7 +4,7 @@ import java.util.List;
 public class Start {
     public List<Player> players = new ArrayList<>();
     ManuUI manuUI = new ManuUI(players);
-    Board board = new Board(players);
+    GameBoard gameBoard = new GameBoard(players);
 
     public List<Player> initPlayers() {
         if (players.isEmpty()) {
@@ -16,7 +16,7 @@ public class Start {
     public void start() {
         initPlayers();
         manuUI.printIntro();
-        board.beforeBattle();
+        gameBoard.beforeBattle();
     }
 
 }

@@ -115,6 +115,7 @@ public class GameBoard {
     }
 
     public void resetBoard() {
+        turn = 0; // reset turn
         for (int i = 0; i < gameboard.length; i++) {
             for (int j = 0; j < gameboard.length; j++) {
                 gameboard[i][j] = ' '; // fill the gameboard with empty spaces
@@ -136,7 +137,6 @@ public class GameBoard {
 
     public void beforeBattle() {
         resetBoard(); // reset gameboard to blanks
-        turn = 0; // reset turn
         System.out.println("Battle started!");
         battle();
     }

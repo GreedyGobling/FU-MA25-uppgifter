@@ -78,6 +78,7 @@ public class GameBoard {
     }
 
     public void resetBoard() {
+        turn = 0;
         for (int i = 0; i < gameboard.length; i++) {
             for (int j = 0; j < gameboard.length; j++) {
                 gameboard[i][j] = ' '; // fill the gameboard with empty spaces

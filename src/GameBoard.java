@@ -14,13 +14,24 @@ public class GameBoard {
         int row = (input - 1) / 3; // get the row
         int col = (input - 1) % 3; // get the column
         char placeMarker = players.get(id).getSymbol().charAt(0); // get the character
-        isDraw(); // TODO Fix code belove
+        isDraw();
         if (input < 1 || input > 9) {
-            System.out.println("Invalid input, please enter a number from 1 to 9");
+            if (players.get(id).getName().equals("AI925")) {
+            } else {
+                System.out.println("Invalid input, please enter a number from 1 to 9");
+            }
         } else if (gameboard[row][col] != ' ') {
-            System.out.println("Cell already occupied, please choose another cell");
+            if (players.get(id).getName().equals("AI925")) {
+            } else {
+                System.out.println("Cell already occupied, please choose another cell");
+            }
         } else {
             gameboard[row][col] = placeMarker; // place the mark
+            if (id == 0) {
+                turn++;
+            } else {
+                turn--;
+            }
         }
     }
 
@@ -33,11 +44,11 @@ public class GameBoard {
             gameOver = true;
             System.out.println("Draw!");
         }
-        if (id == 0) {
-            turn++;
-        } else {
-            turn--;
-        }
+//        if (id == 0) {
+//            turn++;
+//        } else {
+//            turn--;
+//        }
     }
 
     public boolean checkWin(char placeMarker) {
@@ -70,13 +81,8 @@ public class GameBoard {
     }
 
     public void randomBot(int id) {
-        int row, col;
-        do {
-            row = (int) (Math.random() * 3);
-            col = (int) (Math.random() * 3);
-        } while (gameboard[row][col] != ' ');
-        char placeMarker = players.get(id).getSymbol().charAt(0);
-        gameboard[row][col] = placeMarker; // place the mark
+        int input = (int) (Math.random() * 9) + 1; // random number between 1 and 9
+        makeMove(input, id);
         checkGame(id);
     }
 

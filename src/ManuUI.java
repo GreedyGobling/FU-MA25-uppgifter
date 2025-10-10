@@ -84,7 +84,7 @@ public class ManuUI {
         System.out.println("Battle starting!");
         if (dif == 0) { // 1v1
             System.out.println("Player 1 is " + players.get(0).getName() + " and Player 2 is " + players.get(1).getName());
-        } else if (dif == 1 ) { // 1vAI
+        } else if (dif == 1) { // 1vAI
             System.out.println("Player is " + players.get(0).getName() + " vs AI");
         }
     }

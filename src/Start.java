@@ -4,8 +4,7 @@ import java.util.List;
 public class Start {
     public List<Player> players = new ArrayList<>();
     ManuUI manuUI = new ManuUI(players);
-    GameBoard gameBoard = new GameBoard(players);
-    BattleUI battleUI = new BattleUI(players);
+    BattleUI battleUI = new BattleUI();
 
     public List<Player> initPlayers() {
         if (players.isEmpty()) {
@@ -16,8 +15,8 @@ public class Start {
 
     public void start() {
         initPlayers();
-//        battleUI.printBoard();
         manuUI.printIntro();
+        battleUI.BattleUI(players);
         battleUI.beforeBattle();
     }
 

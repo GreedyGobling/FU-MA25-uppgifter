@@ -3,11 +3,9 @@ import java.util.Scanner;
 
 public class BattleUI {
     Scanner sc = new Scanner(System.in);
-    private final List<Player> players;
-    private GameBoard gameBoard = null;
+    private GameBoard gameBoard;
 
-    public BattleUI(List<Player> players) {
-        this.players = players; // remove this and add gameboard to all that need it ???
+    public void BattleUI(List<Player> players) {
         this.gameBoard = new GameBoard(players);
     }
 
@@ -42,7 +40,7 @@ public class BattleUI {
 
     public void afterBattle() {
         printBoard();
-        System.out.println("Score: " + players.get(0).getName() + " " + players.get(0).getWins() + " - " + players.get(1).getWins() + " " + players.get(1).getName());
+        System.out.println("Score: " + gameBoard.players.get(0).getName() + " " + gameBoard.players.get(0).getWins() + " - " + gameBoard.players.get(1).getWins() + " " + gameBoard.players.get(1).getName());
         continyOrEnd();
     }
 
@@ -53,21 +51,20 @@ public class BattleUI {
             beforeBattle();
         } else {
             System.out.println("Thanks for playing!");
-            System.out.println("Final Score: " + players.get(0).getName() + " " + players.get(0).getWins() + " - " + players.get(1).getWins() + " " + players.get(1).getName());
+            System.out.println("Final Score: " + gameBoard.players.get(0).getName() + " " + gameBoard.players.get(0).getWins() + " - " + gameBoard.players.get(1).getWins() + " " + gameBoard.players.get(1).getName());
             System.exit(0); // kill currect process
         }
     }
 
     public void players(int id) {
         printBoard();
-        System.out.println(players.get(id).getName() + " Turn");
+        System.out.println(gameBoard.players.get(id).getName() + " Turn");
         System.out.println("“Choose a tile by entering a number from 1 to 9");
         int input = sc.nextInt();
         sc.nextLine();
         gameBoard.makeMove(input, id);
         gameBoard.checkGame(id);
     }
-
 
     public void printBoard() {
         String green = "\033[32m";

@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class GameBoard {
-    private final char[][] gameboard = new char[3][3]; // 2d array
+    public final char[][] gameboard = new char[3][3]; // 2d array
     public List<Player> players;
     private int turn = 0;
     private boolean gameOver = false;

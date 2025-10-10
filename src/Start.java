@@ -5,6 +5,7 @@ public class Start {
     public List<Player> players = new ArrayList<>();
     ManuUI manuUI = new ManuUI(players);
     GameBoard gameBoard = new GameBoard(players);
+    BattleUI battleUI = new BattleUI(players);
 
     public List<Player> initPlayers() {
         if (players.isEmpty()) {
@@ -15,8 +16,9 @@ public class Start {
 
     public void start() {
         initPlayers();
-        manuUI.printIntro();
-        gameBoard.beforeBattle();
+        battleUI.printBoard();
+//        manuUI.printIntro();
+//        gameBoard.beforeBattle();
     }
 
 }

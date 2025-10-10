@@ -7,11 +7,11 @@ public class BattleUI {
     private GameBoard gameBoard = null;
 
     public BattleUI(List<Player> players) {
-        this.players = players;
+        this.players = players; // remove this and add gameboard to all that need it ???
         this.gameBoard = new GameBoard(players);
     }
 
-        public void battle() {
+    public void battle() {
         try {
             for (gameBoard.gameOver = false; !gameBoard.gameOver; ) {
                 if (gameBoard.turn == 0) {
@@ -34,7 +34,7 @@ public class BattleUI {
         afterBattle();
     }
 
-    public void beforeBattle(){
+    public void beforeBattle() {
         gameBoard.resetBoard();
         System.out.println("Get ready for battle!");
         battle();
@@ -72,7 +72,7 @@ public class BattleUI {
     public void printBoard() {
         String green = "\033[32m";
         String reset = "\033[0m";
-        for (int i = 0; i <  gameBoard.gameboard.length; i++) {
+        for (int i = 0; i < gameBoard.gameboard.length; i++) {
             if (i == 0) System.out.println("|-----------|");
             System.out.print("| " +
                     (gameBoard.gameboard[i][0] != ' ' ? green + gameBoard.gameboard[i][0] + reset : gameBoard.gameboard[i][0]) +

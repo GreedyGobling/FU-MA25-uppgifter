@@ -14,7 +14,7 @@ public class GameBoard {
         int row = (input - 1) / 3; // get the row
         int col = (input - 1) % 3; // get the column
         char placeMarker = players.get(id).getSymbol().charAt(0); // get the character
-        isDraw();
+        isDraw(); // TODO Fix code belove
         if (input < 1 || input > 9) {
             System.out.println("Invalid input, please enter a number from 1 to 9");
         } else if (gameboard[row][col] != ' ') {
@@ -29,11 +29,14 @@ public class GameBoard {
             gameOver = true;
             System.out.println(players.get(id).getName() + " wins!");
             players.get(id).setWins(players.get(id).getWins() + 1);
-//            afterBattle(); //TODO fix a alternativ  and 4 lines below // Not needed???
         } else if (isDraw()) {
             gameOver = true;
             System.out.println("Draw!");
-//            continyOrEnd(); //TODO fix a alternativ  and 4 lines above
+        }
+        if (id == 0) {
+            turn++;
+        } else {
+            turn--;
         }
     }
 

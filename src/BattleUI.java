@@ -14,14 +14,12 @@ public class BattleUI {
             for (gameBoard.gameOver = false; !gameBoard.gameOver; ) {
                 if (gameBoard.turn == 0) {
                     players(0);
-                    gameBoard.turn++;
                 } else {
                     if (gameBoard.players.get(1).getName().equals("AI925")) {
                         gameBoard.randomBot(1);
                     } else {
                         players(1);
                     }
-                    gameBoard.turn--;
                 }
             }
         } catch (Exception e) {

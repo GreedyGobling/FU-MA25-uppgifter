@@ -16,9 +16,9 @@ public class Start {
 
     public void start() {
         initPlayers();
-        battleUI.printBoard();
-//        manuUI.printIntro();
-//        gameBoard.beforeBattle();
+//        battleUI.printBoard();
+        manuUI.printIntro();
+        battleUI.beforeBattle();
     }
 
 }

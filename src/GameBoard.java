@@ -44,11 +44,6 @@ public class GameBoard {
             gameOver = true;
             System.out.println("Draw!");
         }
-//        if (id == 0) {
-//            turn++;
-//        } else {
-//            turn--;
-//        }
     }
 
     public boolean checkWin(char placeMarker) {

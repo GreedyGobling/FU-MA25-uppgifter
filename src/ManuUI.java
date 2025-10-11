@@ -9,8 +9,12 @@ public class ManuUI {
         this.players = players;
     }
 
-    public void printIntro() {
+    public void welcome(){
         System.out.println("Welcome to Tic Tac Toe!");
+        printIntro();
+    }
+    
+    public void printIntro() {
         System.out.println("1 - 1v1, 2 - 1vAI");
         System.out.println("Choose your mode: ");
         try {
@@ -34,7 +38,6 @@ public class ManuUI {
             }
         } catch (Exception e) {
             System.out.println("Invalid mode selected");
-            System.out.println("Return to main menu");
             sc.nextLine();
             printIntro();
         }

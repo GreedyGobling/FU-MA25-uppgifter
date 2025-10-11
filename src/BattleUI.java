@@ -43,7 +43,7 @@ public class BattleUI {
     }
 
     public void continyOrEnd() {
-        System.out.println("Continue? (y/n)");
+        System.out.println("Continue? (y/N)");
         String inString = sc.nextLine();
         if (inString.equalsIgnoreCase("y")) {
             beforeBattle();

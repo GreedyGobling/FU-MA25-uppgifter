@@ -11,10 +11,8 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var scoreView: TextView
     lateinit var scoreAmount: TextView
-    lateinit var posbutton: Button
-    lateinit var minusbutton: Button
-    //lateinit var testbutton: Button
-    var finalscore = 0
+
+    var finalscore: Int = 0
 
     private val plusModeLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
@@ -52,11 +50,6 @@ class MainActivity : AppCompatActivity() {
             minusModeLauncher.launch(intent)
         }
 
-        val testbutton = findViewById<Button>(R.id.test)
-        testbutton.setOnClickListener {
-            finalscore++
-            updateScore()
-        }
 
     }
 

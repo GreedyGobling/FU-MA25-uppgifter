@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Calcgame">
         <activity
-            android:name=".minusmode"
+            android:name=".MinusGameActivity"
             android:exported="false" />
         <activity
-            android:name=".plusmode"
+            android:name=".PlusGameActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -4,11 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,14 +40,14 @@ class MainActivity : AppCompatActivity() {
 
         val posbutton = findViewById<Button>(R.id.pos)
         posbutton.setOnClickListener {
-            val intent = Intent(this, plusmode::class.java)
+            val intent = Intent(this, PlusGameActivity::class.java)
             intent.putExtra("score", finalscore)
             plusModeLauncher.launch(intent)
         }
 
         val minusbutton = findViewById<Button>(R.id.minus)
         minusbutton.setOnClickListener {
-            val intent = Intent(this, minusmode::class.java)
+            val intent = Intent(this, MinusGameActivity::class.java)
             intent.putExtra("score", finalscore)
             minusModeLauncher.launch(intent)
         }

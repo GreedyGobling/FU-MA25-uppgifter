@@ -6,13 +6,9 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
-class plusmode : AppCompatActivity() {
-
+class MinusGameActivity : AppCompatActivity() {
     lateinit var questionTextView: TextView
     lateinit var answerEditText: EditText
     var correctAnswer: Int = 0
@@ -20,7 +16,7 @@ class plusmode : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_plusmode)
+        setContentView(R.layout.activity_game_mode)
 
         questionTextView = findViewById(R.id.question)
         answerEditText = findViewById(R.id.guess)
@@ -43,6 +39,7 @@ class plusmode : AppCompatActivity() {
             finish()
         }
     }
+
     fun handleanswer() {
         val isCorrect = checkAnswer()
         if (isCorrect) {
@@ -55,20 +52,26 @@ class plusmode : AppCompatActivity() {
             Log.d("MainActivity", "User answered incorrectly.")
         }
         answerEditText.text.clear()
-
     }
 
-    fun checkAnswer (): Boolean {
+    fun checkAnswer(): Boolean {
         val userAnswer = answerEditText.text.toString().toIntOrNull()
         return userAnswer == correctAnswer
     }
 
-    fun setquestion(){
-        val num1 = (1..10).random()
-        val num2 = (1..10).random()
+    fun setquestion() {
+        var num1 = (1..10).random()
+        var num2 = (1..10).random()
 
-        correctAnswer = num1 + num2
+        // Ensure num1 >= num2 to avoid negative answers
+        if (num1 < num2) {
+            val temp = num1
+            num1 = num2
+            num2 = temp
+        }
 
-        questionTextView.text = "What is $num1 + $num2?"
+        correctAnswer = num1 - num2
+
+        questionTextView.text = "What is $num1 - $num2?"
     }
 }

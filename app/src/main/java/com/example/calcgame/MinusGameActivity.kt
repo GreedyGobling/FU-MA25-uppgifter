@@ -26,7 +26,7 @@ class MinusGameActivity : AppCompatActivity() {
 
         setquestion()
 
-        val button = findViewById<TextView>(R.id.answerbutton)
+        val button = findViewById<Button>(R.id.answerbutton)
         button.setOnClickListener {
             handleanswer()
         }

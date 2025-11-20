@@ -2,15 +2,13 @@ package com.example.calcgame
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.example.calcgame.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var scoreView: TextView
-    lateinit var scoreAmount: TextView
+    private lateinit var binding: ActivityMainBinding
 
     var finalscore: Int = 0
 
@@ -30,21 +28,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        scoreView = findViewById(R.id.score)
-        scoreAmount = findViewById(R.id.scoreamount)
         updateScore()
 
-        val posbutton = findViewById<Button>(R.id.pos)
-        posbutton.setOnClickListener {
+        binding.pos.setOnClickListener {
             val intent = Intent(this, PlusGameActivity::class.java)
             intent.putExtra("score", finalscore)
             plusModeLauncher.launch(intent)
         }
 
-        val minusbutton = findViewById<Button>(R.id.minus)
-        minusbutton.setOnClickListener {
+        binding.minus.setOnClickListener {
             val intent = Intent(this, MinusGameActivity::class.java)
             intent.putExtra("score", finalscore)
             minusModeLauncher.launch(intent)
@@ -55,8 +50,8 @@ class MainActivity : AppCompatActivity() {
 
     fun updateScore(){
         if (finalscore == 0)
-            scoreAmount.text = "None"
+            binding.scoreamount.text = "None"
         else
-            scoreAmount.text = finalscore.toString()
+            binding.scoreamount.text = finalscore.toString()
     }
 }

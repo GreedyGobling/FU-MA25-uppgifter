@@ -8,13 +8,13 @@ class TodoRepository {
     val items: Flow<List<TodoItem>> = todoDao.getAllTodo()
 
 
-    fun addTodo(item: TodoItem){
+   suspend fun addTodo(item: TodoItem){
         todoDao.addTodo(item)
     }
-    fun updateTodo(item: TodoItem){
+    suspend fun updateTodo(item: TodoItem){
         todoDao.updateTodo(item)
     }
-    fun deleteTODO(item: TodoItem){
+    suspend fun deleteTODO(item: TodoItem){
         todoDao.deleteTODO(item)
     }
 

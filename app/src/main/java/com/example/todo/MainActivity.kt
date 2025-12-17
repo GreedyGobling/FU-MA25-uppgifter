@@ -13,6 +13,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.todo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    // ViewBinding: Eliminates the need for 'findViewById'.
+    // 'binding' gives us direct access to all views in our layout (like buttons, text fields) safely.
     lateinit var binding: ActivityMainBinding
 
     private var itemList = mutableListOf<TodoItem>()
@@ -23,8 +25,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // ViewModelProvider: Creates (or retrieves) the existing ViewModel for this Activity.
+        // It ensures we connect to the same "Brain" even if the screen rotates.
         vm = ViewModelProvider(this).get(TodoViewModel::class.java)
 
+        // observe: This is where we react to changes.
+        // Whenever the database updates, the ViewModel's 'items' LiveData triggers this code block.
+        // We clear the old list and add the new data to update the UI.
         vm.items.observe(this){items ->
             itemList.clear()
             itemList.addAll(items)
